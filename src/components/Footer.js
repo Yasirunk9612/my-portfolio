@@ -3,7 +3,7 @@ import logo from "../assest/img/yk-2.png";
 import navIcon1 from "../assest/img/nav-icon1.svg";
 import navIcon2 from "../assest/img/nav-icon2.svg";
 import navIcon3 from "../assest/img/nav-icon3.svg";
-import navIcon4 from "/Users/yasirunisal/Desktop/portfolio /portfolio-app/src/assest/img/github-mark.svg"
+import navIcon4 from "../assest/img/github-mark.svg";
 
 export const Footer = () => {
   return (
@@ -20,7 +20,7 @@ export const Footer = () => {
                 <a href="https://www.instagram.com/yasiru_nisal__/"><img src={navIcon3} alt="Instergram" /></a>
                 <a href="https://github.com/Yasirunk9612"><img src={navIcon4} alt="GitHub" /></a>
             </div>
-            <p>Copyright 2024. All Rights Reserved || Yasiru Nisal</p>
+            <p>Copyright 2025. All Rights Reserved || Yasiru Nisal</p>
           </Col>
         </Row>
       </Container>
