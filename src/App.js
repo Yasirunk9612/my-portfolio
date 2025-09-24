@@ -1,7 +1,7 @@
 import React, { Suspense, useEffect } from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import { NavBar } from "./components/NavBar";
 import { Footer } from "./components/Footer";
 import { ScrollIndicator, ParticleBackground, MatrixBackground, FuturisticCursor } from "./components/FuturisticEffects";

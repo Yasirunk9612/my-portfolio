@@ -3,13 +3,17 @@ import { useState } from "react";
 
 export const ProjectCard = ({ title, description, imgUrl, technologies, githubUrl, liveUrl, category }) => {
   const [isHovered, setIsHovered] = useState(false);
+  const [imageError, setImageError] = useState(false);
+  const hasValidImage = imgUrl && imgUrl.trim() !== "" && !imageError;
 
   const getCategoryColor = (cat) => {
     const colors = {
       fullstack: 'linear-gradient(45deg, #ff6b35, #f7931e)',
       frontend: 'linear-gradient(45deg, #7209b7, #2d87f0)',
       backend: 'linear-gradient(45deg, #1e3c72, #2a5298)',
-      devops: 'linear-gradient(45deg, #134e5e, #71b280)'
+      devops: 'linear-gradient(45deg, #134e5e, #71b280)',
+      desktop: 'linear-gradient(45deg, #8e2de2, #4a00e0)',
+      mobile: 'linear-gradient(45deg, #ff9a9e, #fecfef)'
     };
     return colors[cat] || 'linear-gradient(45deg, #333, #666)';
   };
@@ -34,77 +38,193 @@ export const ProjectCard = ({ title, description, imgUrl, technologies, githubUr
       }}
     >
       <div style={{ position: 'relative', overflow: 'hidden' }}>
-        <motion.img 
-          src={imgUrl || 'https://via.placeholder.com/400x250/1a1a1a/ffffff?text=Project+Image'} 
-          alt={title}
-          style={{
-            width: '100%',
-            height: '200px',
-            objectFit: 'cover'
-          }}
-          animate={{ scale: isHovered ? 1.1 : 1 }}
-          transition={{ duration: 0.3 }}
-        />
-        <motion.div
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            background: getCategoryColor(category),
-            opacity: isHovered ? 0.8 : 0,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            gap: '15px'
-          }}
-          animate={{ opacity: isHovered ? 0.8 : 0 }}
-          transition={{ duration: 0.3 }}
-        >
-          <motion.a
-            href={githubUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-            style={{
-              background: 'rgba(255, 255, 255, 0.9)',
-              color: '#333',
-              padding: '10px 15px',
-              borderRadius: '25px',
-              textDecoration: 'none',
-              fontWeight: '600',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '5px'
-            }}
-          >
-            <span>📂</span> Code
-          </motion.a>
-          {liveUrl && liveUrl !== '#' && (
-            <motion.a
-              href={liveUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
+        {hasValidImage ? (
+          <>
+            <motion.img 
+              src={imgUrl} 
+              alt={title}
               style={{
-                background: 'rgba(255, 255, 255, 0.9)',
-                color: '#333',
-                padding: '10px 15px',
-                borderRadius: '25px',
-                textDecoration: 'none',
-                fontWeight: '600',
+                width: '100%',
+                height: '200px',
+                objectFit: 'cover'
+              }}
+              animate={{ scale: isHovered ? 1.1 : 1 }}
+              transition={{ duration: 0.3 }}
+              onError={() => setImageError(true)}
+            />
+            <motion.div
+              style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                background: getCategoryColor(category),
+                opacity: isHovered ? 0.8 : 0,
                 display: 'flex',
                 alignItems: 'center',
-                gap: '5px'
+                justifyContent: 'center',
+                gap: '15px'
               }}
+              animate={{ opacity: isHovered ? 0.8 : 0 }}
+              transition={{ duration: 0.3 }}
             >
-              <span>🚀</span> Live
-            </motion.a>
-          )}
-        </motion.div>
+              <motion.a
+                href={githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                style={{
+                  background: 'rgba(255, 255, 255, 0.9)',
+                  color: '#333',
+                  padding: '10px 15px',
+                  borderRadius: '25px',
+                  textDecoration: 'none',
+                  fontWeight: '600',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '5px'
+                }}
+              >
+                <span>📂</span> Code
+              </motion.a>
+              {liveUrl && liveUrl !== '#' && liveUrl !== '' && (
+                <motion.a
+                  href={liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                  style={{
+                    background: 'rgba(255, 255, 255, 0.9)',
+                    color: '#333',
+                    padding: '10px 15px',
+                    borderRadius: '25px',
+                    textDecoration: 'none',
+                    fontWeight: '600',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '5px'
+                  }}
+                >
+                  <span>🚀</span> Live
+                </motion.a>
+              )}
+            </motion.div>
+          </>
+        ) : (
+          <motion.div
+            style={{
+              width: '100%',
+              height: '200px',
+              background: getCategoryColor(category),
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
+              position: 'relative',
+              overflow: 'hidden'
+            }}
+            animate={{ scale: isHovered ? 1.02 : 1 }}
+            transition={{ duration: 0.3 }}
+          >
+            <motion.div
+              style={{
+                fontSize: '3rem',
+                marginBottom: '10px',
+                filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.3))'
+              }}
+              animate={{ 
+                rotate: isHovered ? [0, -5, 5, 0] : 0,
+                scale: isHovered ? 1.1 : 1 
+              }}
+              transition={{ duration: 0.5 }}
+            >
+              {category === 'fullstack' && '⚡'}
+              {category === 'frontend' && '🎨'}
+              {category === 'backend' && '⚙️'}
+              {category === 'devops' && '🔧'}
+              {category === 'desktop' && '💻'}
+              {category === 'mobile' && '📱'}
+              {!['fullstack', 'frontend', 'backend', 'devops', 'desktop', 'mobile'].includes(category) && '🚀'}
+            </motion.div>
+            <motion.div
+              style={{
+                color: 'rgba(255, 255, 255, 0.9)',
+                fontSize: '1.1rem',
+                fontWeight: '600',
+                textTransform: 'uppercase',
+                letterSpacing: '1px',
+                textShadow: '0 2px 4px rgba(0,0,0,0.3)'
+              }}
+              animate={{ y: isHovered ? -5 : 0 }}
+              transition={{ duration: 0.3 }}
+            >
+              {category} Project
+            </motion.div>
+            
+            <motion.div
+              style={{
+                position: 'absolute',
+                bottom: '20px',
+                display: 'flex',
+                gap: '15px',
+                opacity: isHovered ? 1 : 0
+              }}
+              animate={{ 
+                opacity: isHovered ? 1 : 0,
+                y: isHovered ? 0 : 20
+              }}
+              transition={{ duration: 0.3 }}
+            >
+              <motion.a
+                href={githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                style={{
+                  background: 'rgba(255, 255, 255, 0.9)',
+                  color: '#333',
+                  padding: '8px 12px',
+                  borderRadius: '20px',
+                  textDecoration: 'none',
+                  fontWeight: '600',
+                  fontSize: '0.9rem',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '5px'
+                }}
+              >
+                <span>📂</span> Code
+              </motion.a>
+              {liveUrl && liveUrl !== '#' && liveUrl !== '' && (
+                <motion.a
+                  href={liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                  style={{
+                    background: 'rgba(255, 255, 255, 0.9)',
+                    color: '#333',
+                    padding: '8px 12px',
+                    borderRadius: '20px',
+                    textDecoration: 'none',
+                    fontWeight: '600',
+                    fontSize: '0.9rem',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '5px'
+                  }}
+                >
+                  <span>🚀</span> Live
+                </motion.a>
+              )}
+            </motion.div>
+          </motion.div>
+        )}
       </div>
       
       <div style={{ padding: '25px', flex: 1, display: 'flex', flexDirection: 'column' }}>
@@ -191,7 +311,7 @@ export const ProjectCard = ({ title, description, imgUrl, technologies, githubUr
               >
                 📂
               </motion.a>
-              {liveUrl && liveUrl !== '#' && (
+              {liveUrl && liveUrl !== '#' && liveUrl !== '' && (
                 <motion.a
                   href={liveUrl}
                   target="_blank"

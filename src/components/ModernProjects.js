@@ -12,7 +12,7 @@ export const ModernProjects = () => {
     {
       title: "Anime Book Selling Platform",
       description: "Full-stack e-commerce platform with user-friendly interface, admin panel, and robust backend powered by PHP and MySQL. Features user authentication, book catalog, shopping cart, and order management.",
-      imgUrl: "/img/anime.png",
+      imgUrl: `${process.env.PUBLIC_URL}/img/anime.png`,
       technologies: ["HTML", "CSS", "JavaScript", "PHP", "MySQL"],
       githubUrl: "https://github.com/Yasirunk9612/Anime-Book-Selling-website",
       liveUrl: "#",
@@ -21,7 +21,7 @@ export const ModernProjects = () => {
     {
       title: "PS Portfolio - University Project",
       description: "Professional portfolio website developed as university project. Features responsive design, modern CSS animations, and clean user interface showcasing academic and personal projects.",
-      imgUrl: "/img/ps.png",
+      imgUrl: `${process.env.PUBLIC_URL}/img/ps.png`,
       technologies: ["HTML", "CSS", "JavaScript"],
       githubUrl: "https://github.com/Yasirunk9612/PS_Portfolio",
       liveUrl: "https://ps-portfolio-uni.vercel.app",
@@ -30,7 +30,7 @@ export const ModernProjects = () => {
         {
       title: "Pizza Shop",
       description: "Modern pizza shop website built with Next.js showcasing menu items, online ordering, and delivery functionality. First Next.js project demonstrating server-side rendering and modern React patterns.",
-      imgUrl: "/img/pizza.png",
+      imgUrl: `${process.env.PUBLIC_URL}/img/pizza.png`,
       technologies: ["Next.js", "React", "JavaScript", "Tailwind", "Node.js", "MongoDB", "Express.js"],
       githubUrl: "#",
       liveUrl: "https://pazz-pizza.vercel.app",
@@ -39,7 +39,7 @@ export const ModernProjects = () => {
         {
       title: "CYPEX-TECH Website",
       description: "Modern travel website built with Next.js showcasing destinations, travel packages, and booking functionality. First Next.js project demonstrating server-side rendering and modern React patterns.",
-      imgUrl: "/img/cypex.png",
+      imgUrl: `${process.env.PUBLIC_URL}/img/cypex.png`,
       technologies: ["Next.js", "React", "JavaScript", "CSS"],
       githubUrl: "#",
       liveUrl: "https://cypex-website.vercel.app",
@@ -48,7 +48,7 @@ export const ModernProjects = () => {
     {
       title: "Travel Website - Next.js",
       description: "Modern travel website built with Next.js showcasing destinations, travel packages, and booking functionality. First Next.js project demonstrating server-side rendering and modern React patterns.",
-      imgUrl: "/img/T1.png",
+      imgUrl: `${process.env.PUBLIC_URL}/img/T1.png`,
       technologies: ["Next.js", "React", "JavaScript", "CSS"],
       githubUrl: "https://github.com/Yasirunk9612/Travel-Website",
       liveUrl: "#",
@@ -57,7 +57,7 @@ export const ModernProjects = () => {
     {
   title: "TechRepair Shop - Desktop Management System",
   description: "A desktop-based management system developed using Java Swing for a tech repair shop. The application allows managing customer orders, suppliers, inventory, employees, and generating reports. It provides an easy-to-use interface for handling day-to-day repair shop operations efficiently.",
-  imgUrl: "/img/techRep.png",
+  imgUrl: `${process.env.PUBLIC_URL}/img/techRep.png`,
   technologies: ["Java", "Swing", "MySQL"],
   githubUrl: "https://github.com/YOUR_GITHUB_USERNAME/TechRepairShop",
   liveUrl: "",
@@ -66,7 +66,7 @@ export const ModernProjects = () => {
 {
   title: "Travel Companion App - Android Project",
   description: "Your personal travel assistant, designed to simplify trip planning. It combines itinerary management, live weather updates, and curated local recommendations into a user-friendly mobile app experience, ensuring stress-free adventures.",
-  imgUrl: "/img/travelapp.jpeg",
+  imgUrl: `${process.env.PUBLIC_URL}/img/travelapp.jpeg`,
   technologies: ["Java", "Firebase"],
   githubUrl: "https://github.com/YOUR_GITHUB_USERNAME/TravelCompanionApp",
   liveUrl: "",
@@ -147,7 +147,9 @@ export const ModernProjects = () => {
     { key: "fullstack", label: "Full Stack", icon: "⚡" },
     { key: "frontend", label: "Frontend", icon: "🎨" },
     { key: "backend", label: "Backend", icon: "⚙️" },
-    { key: "devops", label: "DevOps", icon: "🔧" }
+    { key: "devops", label: "DevOps", icon: "🔧" },
+    { key: "desktop", label: "Desktop", icon: "💻" },
+    { key: "mobile", label: "Mobile", icon: "📱" }
   ];
 
   return (
