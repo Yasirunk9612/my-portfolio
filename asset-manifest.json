@@ -1,10 +1,10 @@
 {
   "files": {
     "main.css": "/my-portfolio/static/css/main.d19b05f1.css",
-    "main.js": "/my-portfolio/static/js/main.cd28bd5e.js",
+    "main.js": "/my-portfolio/static/js/main.5482d9d8.js",
     "static/js/722.d923a0d4.chunk.js": "/my-portfolio/static/js/722.d923a0d4.chunk.js",
     "static/js/670.91f23a58.chunk.js": "/my-portfolio/static/js/670.91f23a58.chunk.js",
-    "static/js/324.4dab1f21.chunk.js": "/my-portfolio/static/js/324.4dab1f21.chunk.js",
+    "static/js/324.a955bbb5.chunk.js": "/my-portfolio/static/js/324.a955bbb5.chunk.js",
     "static/js/513.fb3ec690.chunk.js": "/my-portfolio/static/js/513.fb3ec690.chunk.js",
     "static/js/16.ee7059bf.chunk.js": "/my-portfolio/static/js/16.ee7059bf.chunk.js",
     "static/js/310.1eb9a3eb.chunk.js": "/my-portfolio/static/js/310.1eb9a3eb.chunk.js",
@@ -27,10 +27,10 @@
     "static/media/nav-icon1.svg": "/my-portfolio/static/media/nav-icon1.721d5414c26365f117e71d46b6641cb2.svg",
     "static/media/nav-icon2.svg": "/my-portfolio/static/media/nav-icon2.178f497aa17b70c42df2a1a8c926ed01.svg",
     "main.d19b05f1.css.map": "/my-portfolio/static/css/main.d19b05f1.css.map",
-    "main.cd28bd5e.js.map": "/my-portfolio/static/js/main.cd28bd5e.js.map",
+    "main.5482d9d8.js.map": "/my-portfolio/static/js/main.5482d9d8.js.map",
     "722.d923a0d4.chunk.js.map": "/my-portfolio/static/js/722.d923a0d4.chunk.js.map",
     "670.91f23a58.chunk.js.map": "/my-portfolio/static/js/670.91f23a58.chunk.js.map",
-    "324.4dab1f21.chunk.js.map": "/my-portfolio/static/js/324.4dab1f21.chunk.js.map",
+    "324.a955bbb5.chunk.js.map": "/my-portfolio/static/js/324.a955bbb5.chunk.js.map",
     "513.fb3ec690.chunk.js.map": "/my-portfolio/static/js/513.fb3ec690.chunk.js.map",
     "16.ee7059bf.chunk.js.map": "/my-portfolio/static/js/16.ee7059bf.chunk.js.map",
     "310.1eb9a3eb.chunk.js.map": "/my-portfolio/static/js/310.1eb9a3eb.chunk.js.map",
@@ -41,6 +41,6 @@
   },
   "entrypoints": [
     "static/css/main.d19b05f1.css",
-    "static/js/main.cd28bd5e.js"
+    "static/js/main.5482d9d8.js"
   ]
 }
