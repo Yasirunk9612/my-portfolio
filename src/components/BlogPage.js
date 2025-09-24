@@ -12,7 +12,7 @@ export const BlogPage = () => {
   // Use centralized blog posts data
   const blogPosts = useMemo(() => blogPostsData, []);
 
-  const categories = ['all', 'React', 'Full-Stack', 'Database', 'CSS', 'DevOps', 'TypeScript'];
+  const categories = ['all', 'React', 'Full-Stack', 'CSS', 'DevOps', 'TypeScript'];
 
   const filteredPosts = selectedCategory === 'all' 
     ? blogPosts 
@@ -79,13 +79,16 @@ export const BlogPage = () => {
         {/* Blog Image */}
         <div style={{
           height: '200px',
-          background: 'linear-gradient(45deg, #667eea, #764ba2)',
+          background: post.image ? undefined : 'linear-gradient(45deg, #667eea, #764ba2)',
           position: 'relative',
           display: 'flex',
           alignItems: 'center',
-          justifyContent: 'center'
+          justifyContent: 'center',
+          overflow: 'hidden'
         }}>
-          <img src={post.image} alt={post.title} loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+          {post.image && (
+            <img src={post.image} alt={post.title} loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+          )}
           <div style={{
             position: 'absolute',
             bottom: 0,

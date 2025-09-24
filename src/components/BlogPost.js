@@ -1,7 +1,7 @@
 import { Container, Row, Col } from "react-bootstrap";
 import { motion, useInView } from "framer-motion";
-import { useRef, useEffect, useState, useMemo } from "react";
-import { useParams, Link, Navigate } from "react-router-dom";
+import { useRef, useMemo, useEffect, useCallback } from "react";
+import { useParams, Link } from "react-router-dom";
 import { ArrowLeft, Clock, Calendar, Tag, User, Share2, BookOpen } from "lucide-react";
 import { blogPosts as blogPostsData } from "../data/blogPosts";
 
@@ -9,28 +9,16 @@ export const BlogPost = () => {
   const { id } = useParams();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
-  const [post, setPost] = useState(null);
-  const [relatedPosts, setRelatedPosts] = useState([]);
 
-  // Use useMemo to memoize blogPosts to avoid dependency issues
+  // Memoized posts and derived selections
   const blogPosts = useMemo(() => blogPostsData, []);
-
-  useEffect(() => {
-    const foundPost = blogPosts.find(p => p.id === id);
-    if (foundPost) {
-      setPost(foundPost);
-      
-      // Get related posts (same category, excluding current post)
-      const related = blogPosts
-        .filter(p => p.id !== id && p.category === foundPost.category)
-        .slice(0, 3);
-      setRelatedPosts(related);
-    }
-  }, [id, blogPosts]);
-
-  if (!post) {
-    return <Navigate to="/blog" replace />;
-  }
+  const post = useMemo(() => blogPosts.find((p) => p.id === id), [blogPosts, id]);
+  const relatedPosts = useMemo(() => {
+    if (!post) return [];
+    return blogPosts
+      .filter((p) => p.id !== id && p.category === post.category)
+      .slice(0, 3);
+  }, [blogPosts, id, post]);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -44,6 +32,101 @@ export const BlogPost = () => {
     hidden: { y: 30, opacity: 0 },
     visible: { y: 0, opacity: 1, transition: { duration: 0.6, ease: "easeOut" } }
   };
+
+  // Inject SEO meta tags for the post
+  useEffect(() => {
+    if (!post) return;
+    const title = post.seoTitle || post.title;
+    const description = post.seoDescription || post.excerpt;
+    const url = window.location.href;
+    const image = post.image;
+
+    const setMeta = (name, content, attr = 'name') => {
+      let el = document.querySelector(`meta[${attr}="${name}"]`);
+      if (!el) {
+        el = document.createElement('meta');
+        el.setAttribute(attr, name);
+        document.head.appendChild(el);
+      }
+      el.setAttribute('content', content || '');
+      return el;
+    };
+
+    const prevTitle = document.title;
+    document.title = title;
+    const metas = [
+      setMeta('description', description),
+      setMeta('og:title', title, 'property'),
+      setMeta('og:description', description, 'property'),
+      setMeta('og:type', 'article', 'property'),
+      setMeta('og:url', url, 'property'),
+      setMeta('og:image', image, 'property'),
+      setMeta('twitter:card', 'summary_large_image'),
+      setMeta('twitter:title', title),
+      setMeta('twitter:description', description),
+      setMeta('twitter:image', image)
+    ];
+
+    // JSON-LD Article schema
+    const ld = document.createElement('script');
+    ld.type = 'application/ld+json';
+    ld.dataset.from = 'blogpost';
+    ld.text = JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'BlogPosting',
+      headline: post.title,
+      description,
+      image,
+      datePublished: post.date,
+      author: { '@type': 'Person', name: post.author },
+    });
+    document.head.appendChild(ld);
+
+    return () => {
+      document.title = prevTitle;
+      metas.forEach(m => m && m.remove());
+      const existing = document.querySelectorAll('script[type="application/ld+json"][data-from="blogpost"]');
+      existing.forEach(s => s.remove());
+    };
+  }, [post]);
+
+  const copyLink = useCallback(() => {
+    const url = window.location.href;
+    navigator.clipboard?.writeText(url);
+  }, []);
+
+  if (!post) {
+    return (
+      <section className="blog-post" style={{ paddingTop: '120px', paddingBottom: '100px', minHeight: '60vh' }}>
+        <Container>
+          <Row>
+            <Col style={{ textAlign: 'center' }}>
+              <h2 style={{ color: '#fff', marginBottom: '1rem' }}>Post not found</h2>
+              <p style={{ color: '#b8b8b8', marginBottom: '2rem' }}>The article you're looking for doesn't exist or has moved.</p>
+              <Link
+                to="/blog"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '10px',
+                  color: '#ff6b35',
+                  textDecoration: 'none',
+                  fontSize: '1.1rem',
+                  fontWeight: '600',
+                  padding: '12px 24px',
+                  background: 'rgba(255, 107, 53, 0.1)',
+                  borderRadius: '50px',
+                  border: '1px solid rgba(255, 107, 53, 0.3)'
+                }}
+              >
+                ← Back to Blog
+              </Link>
+            </Col>
+          </Row>
+        </Container>
+      </section>
+    );
+  }
 
   return (
     <section className="blog-post" ref={ref} style={{ 
@@ -188,21 +271,52 @@ export const BlogPost = () => {
                       marginBottom: '3rem'
                     }}
                   >
-                    <img
-                      src={post.image}
-                      alt={post.title}
-                      loading="lazy"
-                      style={{
+                    {post.image ? (
+                      <img
+                        src={post.image}
+                        alt={post.title}
+                        loading="lazy"
+                        style={{
+                          width: '100%',
+                          height: '400px',
+                          objectFit: 'cover'
+                        }}
+                      />
+                    ) : (
+                      <div style={{
                         width: '100%',
-                        height: '400px',
-                        objectFit: 'cover'
-                      }}
-                    />
+                        height: '300px',
+                        background: 'linear-gradient(45deg, #667eea, #764ba2)'
+                      }} />
+                    )}
                   </motion.div>
                 </div>
               </motion.div>
             </Col>
           </Row>
+
+          {/* TL;DR */}
+          {post.tldr && post.tldr.length > 0 && (
+            <Row className="mb-4">
+              <Col lg={8} className="mx-auto">
+                <motion.div variants={itemVariants}>
+                  <div style={{
+                    background: 'rgba(255, 255, 255, 0.06)',
+                    border: '1px solid rgba(255, 255, 255, 0.12)',
+                    borderRadius: '16px',
+                    padding: '20px 24px'
+                  }}>
+                    <h3 style={{ color: '#fff', marginBottom: '10px', display: 'flex', alignItems: 'center', gap: '10px' }}>📌 TL;DR</h3>
+                    <ul style={{ margin: 0, paddingLeft: '1.2rem' }}>
+                      {post.tldr.map((item, i) => (
+                        <li key={i} style={{ color: '#d9d9d9', marginBottom: '6px' }}>{item}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </motion.div>
+              </Col>
+            </Row>
+          )}
 
           {/* Article Content */}
           <Row className="mb-5">
@@ -270,6 +384,7 @@ export const BlogPost = () => {
                       Share on LinkedIn
                     </motion.button>
                     <motion.button
+                      onClick={copyLink}
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                       style={{
