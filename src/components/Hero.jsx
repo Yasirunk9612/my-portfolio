@@ -129,7 +129,7 @@ export default function Hero() {
             ? { duration: 0.5 }
             : { duration: 26, repeat: Infinity, ease: "easeInOut" }
         }
-        className="pointer-events-none absolute left-1/2 top-1/2 z-[6] hidden w-56 -translate-x-1/2 -translate-y-1/2 opacity-80 drop-shadow-[0_0_46px_rgba(99,102,241,0.55)] md:block lg:w-80"
+        className="pointer-events-none absolute left-1/2 top-1/2 z-[6] w-40 -translate-x-1/2 -translate-y-1/2 opacity-80 drop-shadow-[0_0_46px_rgba(99,102,241,0.55)] sm:w-52 md:w-56 lg:w-80"
       />
 
       <div className="relative z-10 mx-auto w-full max-w-7xl text-center">
@@ -186,15 +186,6 @@ export default function Hero() {
           I engineer web products, intelligent interfaces, and scalable software
           with React, Next.js, Node.js, C# and emerging AI technology.
         </motion.p>
-
-        <motion.img
-          src="/img/header-img.svg"
-          alt="Developer astronaut illustration"
-          initial={{ opacity: 0, scale: 0.88 }}
-          animate={{ opacity: 1, scale: [0.94, 1, 0.96], x: [-28, 24, -20, -28], y: [0, -14, 6, 0], rotate: [-4, 4, -2, -4] }}
-          transition={{ opacity: { delay: 0.45, duration: 0.6 }, scale: { duration: 12, repeat: Infinity, ease: "easeInOut" }, x: { duration: 12, repeat: Infinity, ease: "easeInOut" }, y: { duration: 12, repeat: Infinity, ease: "easeInOut" }, rotate: { duration: 12, repeat: Infinity, ease: "easeInOut" } }}
-          className="mx-auto mt-8 w-52 drop-shadow-[0_0_38px_rgba(99,102,241,0.5)] md:hidden"
-        />
 
         <motion.div
           initial={{ opacity: 0, y: 22 }}
