@@ -52,7 +52,7 @@ function Signal({ label, position, delay }) {
 
 export default function Hero() {
   const reduceMotion = useReducedMotion();
-  const cvPath = `${process.env.PUBLIC_URL || ""}/Yasiru_Nisal_CV.pdf`;
+  const cvPath = "https://github.com/Yasirunk9612/my-portfolio/releases/download/cv/Yasiru_s_resume.pdf";
   const [mouse, setMouse] = useState({ x: 0, y: 0 });
 
   const parallax = reduceMotion ? { x: 0, y: 0 } : mouse;
@@ -214,7 +214,8 @@ export default function Hero() {
             whileHover={{ y: -4, scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
             href={cvPath}
-            download
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-full border border-purple-400/25 bg-slate-900/55 px-7 py-3.5 font-semibold text-slate-100 backdrop-blur-xl hover:border-purple-300 hover:text-purple-200"
           >
             <Download className="h-4 w-4" /> CV

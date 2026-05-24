@@ -12,7 +12,7 @@ export default function Navbar() {
   const [active, setActive] = useState("home");
   const pathname = usePathname();
   const isHome = pathname === "/";
-  const cvPath = "/Yasiru_Nisal_CV.pdf";
+  const cvPath = "https://github.com/Yasirunk9612/my-portfolio/releases/download/cv/Yasiru_s_resume.pdf";
 
   useEffect(() => {
     if (!isHome) return undefined;
@@ -54,7 +54,7 @@ export default function Navbar() {
               {item.label}
             </Link>
           ))}
-          <a href={cvPath} download className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 px-5 py-2 text-sm font-semibold text-white shadow-[0_0_30px_rgba(56,189,248,0.35)] transition hover:scale-105">
+          <a href={cvPath} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 px-5 py-2 text-sm font-semibold text-white shadow-[0_0_30px_rgba(56,189,248,0.35)] transition hover:scale-105">
             <Download className="h-4 w-4" /> Download CV
           </a>
         </div>
@@ -76,7 +76,7 @@ export default function Navbar() {
                   {item.label}
                 </Link>
               ))}
-              <a href={cvPath} download className="inline-flex w-fit items-center gap-2 rounded-full bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 px-5 py-2 font-semibold text-white">
+              <a href={cvPath} target="_blank" rel="noopener noreferrer" className="inline-flex w-fit items-center gap-2 rounded-full bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 px-5 py-2 font-semibold text-white">
                 <Download className="h-4 w-4" /> Download CV
               </a>
             </div>

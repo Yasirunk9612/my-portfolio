@@ -6,7 +6,7 @@ import { Download, Github, Instagram, Linkedin, Mail, MapPin } from "lucide-reac
 import SectionTitle from "./SectionTitle";
 
 export default function Contact() {
-  const cvPath = "/Yasiru_Nisal_CV.pdf";
+  const cvPath = "https://github.com/Yasirunk9612/my-portfolio/releases/download/cv/Yasiru_s_resume.pdf";
   const [form, setForm] = useState({ firstName: "", lastName: "", email: "", phone: "", message: "" });
   const [status, setStatus] = useState("");
   const [loading, setLoading] = useState(false);
@@ -51,7 +51,7 @@ export default function Contact() {
               <p className="flex items-center gap-2"><Instagram className="h-4 w-4 text-cyan-300" /> yasiru_nisal__</p>
               <p className="flex items-center gap-2"><MapPin className="h-4 w-4 text-cyan-300" /> Sri Lanka</p>
             </div>
-            <a href={cvPath} download className="mt-6 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 px-6 py-3 font-semibold text-white"><Download className="h-4 w-4" />Download CV</a>
+            <a href={cvPath} target="_blank" rel="noopener noreferrer" className="mt-6 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 px-6 py-3 font-semibold text-white"><Download className="h-4 w-4" />Download CV</a>
           </motion.div>
           <motion.form onSubmit={submit} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: false, amount: 0.18 }} className="rounded-3xl border border-cyan-400/20 bg-slate-900/60 p-8 backdrop-blur-xl">
             <div className="grid gap-4 md:grid-cols-2">
