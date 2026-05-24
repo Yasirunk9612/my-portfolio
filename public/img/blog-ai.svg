@@ -1,0 +1,20 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="ai-bg" x1="0" y1="0" x2="1200" y2="630"><stop stop-color="#020617"/><stop offset=".54" stop-color="#11163B"/><stop offset="1" stop-color="#28113A"/></linearGradient>
+    <linearGradient id="ai-net" x1="620" y1="160" x2="1070" y2="490"><stop stop-color="#38BDF8"/><stop offset=".5" stop-color="#6366F1"/><stop offset="1" stop-color="#D946EF"/></linearGradient>
+    <filter id="ai-glow"><feGaussianBlur stdDeviation="22"/></filter>
+  </defs>
+  <rect width="1200" height="630" rx="36" fill="url(#ai-bg)"/>
+  <circle cx="858" cy="318" r="220" fill="#A855F7" opacity=".13" filter="url(#ai-glow)"/>
+  <text x="72" y="148" fill="#C084FC" font-size="16" font-family="monospace" letter-spacing="5">INTELLIGENT PRODUCTS</text>
+  <text x="72" y="230" fill="#F8FAFC" font-size="58" font-family="Arial, sans-serif" font-weight="700">AI Integration</text>
+  <text x="74" y="282" fill="#94A3B8" font-size="24" font-family="Arial, sans-serif">Useful workflows with human control</text>
+  <g stroke="url(#ai-net)" stroke-width="3" opacity=".9">
+    <path d="M650 315L742 220L842 274L932 174L1048 242M650 315L760 400L842 274L934 394L1048 242M760 400L872 472L934 394"/>
+  </g>
+  <g fill="#38BDF8">
+    <circle cx="650" cy="315" r="12"/><circle cx="742" cy="220" r="10"/><circle cx="842" cy="274" r="18"/><circle cx="932" cy="174" r="10"/><circle cx="1048" cy="242" r="12"/><circle cx="760" cy="400" r="11"/><circle cx="934" cy="394" r="15"/><circle cx="872" cy="472" r="9"/>
+  </g>
+  <rect x="72" y="364" width="340" height="54" rx="27" fill="#0F172A" stroke="#A855F7" stroke-opacity=".55"/>
+  <text x="102" y="398" fill="#E9D5FF" font-size="18" font-family="monospace">review -&gt; automate -&gt; ship</text>
+</svg>

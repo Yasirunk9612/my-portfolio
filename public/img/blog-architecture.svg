@@ -1,0 +1,21 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="arch-bg" x1="0" y1="0" x2="1200" y2="630"><stop stop-color="#020617"/><stop offset=".5" stop-color="#0F172A"/><stop offset="1" stop-color="#22133D"/></linearGradient>
+    <linearGradient id="arch-flow" x1="370" y1="315" x2="950" y2="315"><stop stop-color="#38BDF8"/><stop offset=".5" stop-color="#6366F1"/><stop offset="1" stop-color="#A855F7"/></linearGradient>
+    <filter id="arch-glow"><feGaussianBlur stdDeviation="24"/></filter>
+  </defs>
+  <rect width="1200" height="630" rx="36" fill="url(#arch-bg)"/>
+  <circle cx="860" cy="310" r="230" fill="#6366F1" opacity=".12" filter="url(#arch-glow)"/>
+  <text x="72" y="144" fill="#A5B4FC" font-size="16" font-family="monospace" letter-spacing="5">ARCHITECTURE DECISIONS</text>
+  <text x="72" y="224" fill="#F8FAFC" font-size="57" font-family="Arial, sans-serif" font-weight="700">MERN vs Next.js</text>
+  <text x="74" y="275" fill="#94A3B8" font-size="24" font-family="Arial, sans-serif">Choose the stack for the product</text>
+  <g font-family="monospace" text-anchor="middle">
+    <rect x="584" y="196" width="170" height="82" rx="20" fill="#082F49" stroke="#38BDF8" stroke-opacity=".55"/>
+    <text x="669" y="245" fill="#7DD3FC" font-size="24">MERN</text>
+    <rect x="886" y="196" width="170" height="82" rx="20" fill="#21133D" stroke="#C084FC" stroke-opacity=".6"/>
+    <text x="971" y="245" fill="#D8B4FE" font-size="24">NEXT.JS</text>
+    <path d="M669 278V348H971V278M820 348V404" stroke="url(#arch-flow)" stroke-width="4" stroke-dasharray="10 9"/>
+    <rect x="735" y="404" width="170" height="68" rx="18" fill="#0F172A" stroke="#818CF8" stroke-opacity=".55"/>
+    <text x="820" y="446" fill="#C7D2FE" font-size="18">PRODUCT</text>
+  </g>
+</svg>

@@ -1,0 +1,22 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="api-bg" x1="40" y1="0" x2="1170" y2="630"><stop stop-color="#020617"/><stop offset=".5" stop-color="#08283A"/><stop offset="1" stop-color="#17173D"/></linearGradient>
+    <linearGradient id="api-border" x1="622" y1="156" x2="1084" y2="480"><stop stop-color="#38BDF8"/><stop offset="1" stop-color="#8B5CF6"/></linearGradient>
+  </defs>
+  <rect width="1200" height="630" rx="36" fill="url(#api-bg)"/>
+  <text x="72" y="150" fill="#38BDF8" font-size="16" font-family="monospace" letter-spacing="5">BACKEND SYSTEMS</text>
+  <text x="72" y="231" fill="#F8FAFC" font-size="54" font-weight="700" font-family="Arial, sans-serif">Clean API Design</text>
+  <text x="74" y="284" fill="#94A3B8" font-size="24" font-family="Arial, sans-serif">Predictable contracts. Scalable products.</text>
+  <rect x="600" y="128" width="486" height="370" rx="28" fill="#020617" fill-opacity=".68" stroke="url(#api-border)" stroke-opacity=".6"/>
+  <g font-family="monospace" font-size="21">
+    <text x="642" y="206" fill="#38BDF8">GET</text><text x="735" y="206" fill="#CBD5E1">/api/projects</text><text x="1000" y="206" fill="#34D399">200</text>
+    <path d="M642 228H1048" stroke="#1E293B"/>
+    <text x="642" y="282" fill="#C084FC">POST</text><text x="735" y="282" fill="#CBD5E1">/api/bookings</text><text x="1000" y="282" fill="#34D399">201</text>
+    <path d="M642 304H1048" stroke="#1E293B"/>
+    <text x="642" y="358" fill="#FBBF24">PATCH</text><text x="735" y="358" fill="#CBD5E1">/api/status</text><text x="1000" y="358" fill="#34D399">200</text>
+    <path d="M642 380H1048" stroke="#1E293B"/>
+    <text x="642" y="434" fill="#38BDF8">{ success: true }</text>
+  </g>
+  <rect x="72" y="361" width="348" height="54" rx="27" fill="#0F172A" stroke="#6366F1" stroke-opacity=".5"/>
+  <text x="102" y="395" fill="#C7D2FE" font-size="17" font-family="monospace">REST / VALIDATE / SECURE</text>
+</svg>

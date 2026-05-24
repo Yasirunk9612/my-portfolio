@@ -1,0 +1,21 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="ci-bg" x2="1200" y2="630"><stop stop-color="#020617"/><stop offset=".62" stop-color="#06293C"/><stop offset="1" stop-color="#21153D"/></linearGradient>
+    <linearGradient id="ci-path" x1="580" y1="333" x2="1080" y2="333"><stop stop-color="#38BDF8"/><stop offset=".5" stop-color="#2563EB"/><stop offset="1" stop-color="#A855F7"/></linearGradient>
+    <filter id="ci-glow"><feGaussianBlur stdDeviation="17"/></filter>
+  </defs>
+  <rect width="1200" height="630" rx="36" fill="url(#ci-bg)"/>
+  <path d="M565 332H1073" stroke="#38BDF8" stroke-width="18" opacity=".14" filter="url(#ci-glow)"/>
+  <path d="M565 332H1073" stroke="url(#ci-path)" stroke-width="3" stroke-dasharray="14 12"/>
+  <text x="72" y="150" fill="#38BDF8" font-size="16" font-family="monospace" letter-spacing="5">SHIPPING PIPELINE</text>
+  <text x="72" y="233" fill="#F8FAFC" font-size="60" font-family="Arial, sans-serif" font-weight="700">CI/CD</text>
+  <text x="72" y="287" fill="#94A3B8" font-size="24" font-family="Arial, sans-serif">From push to reliable deploy</text>
+  <g font-family="monospace" text-anchor="middle" font-size="15">
+    <g><circle cx="614" cy="332" r="36" fill="#082F49" stroke="#38BDF8"/><text x="614" y="337" fill="#BAE6FD">PUSH</text></g>
+    <g><circle cx="764" cy="332" r="36" fill="#0C244A" stroke="#60A5FA"/><text x="764" y="337" fill="#BFDBFE">TEST</text></g>
+    <g><circle cx="914" cy="332" r="36" fill="#171B4A" stroke="#818CF8"/><text x="914" y="337" fill="#C7D2FE">BUILD</text></g>
+    <g><circle cx="1064" cy="332" r="36" fill="#24113C" stroke="#C084FC"/><text x="1064" y="337" fill="#E9D5FF">LIVE</text></g>
+  </g>
+  <rect x="72" y="376" width="376" height="56" rx="18" fill="#0F172A" stroke="#38BDF8" stroke-opacity=".35"/>
+  <text x="100" y="411" fill="#7DD3FC" font-size="18" font-family="monospace">status: deployment_success</text>
+</svg>

@@ -1,0 +1,18 @@
+<svg width="960" height="540" viewBox="0 0 960 540" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs><linearGradient id="bg3" x2="960" y2="540"><stop stop-color="#040B19"/><stop offset="1" stop-color="#171039"/></linearGradient><linearGradient id="g3" x2="600"><stop stop-color="#38BDF8"/><stop offset="1" stop-color="#8B5CF6"/></linearGradient></defs>
+  <rect width="960" height="540" rx="30" fill="url(#bg3)"/>
+  <text x="56" y="62" fill="#A78BFA" font-family="monospace" font-size="14" letter-spacing="3">C# / .NET CONSOLE</text>
+  <text x="56" y="116" fill="#F8FAFC" font-family="Arial" font-size="39" font-weight="700">Todo Task Runner</text>
+  <rect x="56" y="158" width="848" height="320" rx="22" fill="#020617" stroke="#334155"/>
+  <circle cx="88" cy="187" r="7" fill="#EF4444"/><circle cx="112" cy="187" r="7" fill="#FBBF24"/><circle cx="136" cy="187" r="7" fill="#34D399"/>
+  <text x="80" y="240" fill="#38BDF8" font-family="monospace" font-size="16">&gt; dotnet run todo-app</text>
+  <text x="80" y="284" fill="#94A3B8" font-family="monospace" font-size="15">[x] Build persistent storage</text>
+  <text x="80" y="322" fill="#94A3B8" font-family="monospace" font-size="15">[x] Add command parsing</text>
+  <text x="80" y="360" fill="#CBD5E1" font-family="monospace" font-size="15">[ ] Ship clean CLI experience</text>
+  <rect x="80" y="403" width="390" height="42" rx="10" fill="#0F172A" stroke="#38BDF8" stroke-opacity=".3"/>
+  <text x="99" y="430" fill="#C4B5FD" font-family="monospace" font-size="14">tasks saved successfully_</text>
+  <rect x="670" y="232" width="174" height="146" rx="18" fill="#0F172A" stroke="url(#g3)"/>
+  <text x="700" y="270" fill="#94A3B8" font-family="Arial" font-size="12">COMPLETED</text>
+  <text x="700" y="325" fill="#38BDF8" font-family="Arial" font-size="48" font-weight="700">12</text>
+  <text x="700" y="350" fill="#A5B4FC" font-family="monospace" font-size="12">local file I/O</text>
+</svg>
